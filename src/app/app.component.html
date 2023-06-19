@@ -1,0 +1,15 @@
+<mat-drawer-container class="global-content">
+  <mat-drawer #drawer mode="side">
+     <a  [routerLink]="['/home']" *ngIf="usuario">Inicio</a>
+     <br>
+       <a  [routerLink]="['/cliente']" *ngIf="usuario">Cliente</a>
+       <br>
+       <a  [routerLink]="['/venta']" *ngIf="usuario">ventas</a>
+       <br>
+       <a (click)="logout()" *ngIf="usuario" >Cerrar sesión</a>
+    </mat-drawer>
+    <div>
+      <button (click)="drawer.toggle();">Mostra/ocultar</button>
+      <router-outlet></router-outlet>
+    </div>
+</mat-drawer-container>
