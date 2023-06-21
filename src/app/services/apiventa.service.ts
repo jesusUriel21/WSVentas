@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Venta } from '../models/venta';
 import { Response } from '../models/response';
 import { Observable } from 'rxjs';
+import { Concepto } from '../models/concepto';
 
 
 const httpOption = {
@@ -14,12 +15,17 @@ const httpOption = {
 @Injectable({
   providedIn: 'root'
 })
-export class ApiventaService {
+export class ApiventaService  {
   
    url: string = 'https://localhost:44395/api/Venta'
 
   constructor( private http: HttpClient) { 
   }
+  
+  getVentas():Observable<Response>{
+    return this.http.get<Response>(this.url);
+  }
+
 
   add(venta : Venta): Observable<Response>{
     console.log(venta);

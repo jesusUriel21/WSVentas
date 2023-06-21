@@ -32,7 +32,7 @@ export class DialogclienteComponent{
      addCliente () {
       const cliente: Cliente = {nombre: this.nombre, id: 0}
              this.apiCliente.add(cliente).subscribe(response => {
-                 if(response.exito === 1){
+                 if(response.exito == 1){
                    this.dialogRef.close();
                    this.sanckBar.open('Cliente insertado con exito', '' ,{duration: 2000 });
            }

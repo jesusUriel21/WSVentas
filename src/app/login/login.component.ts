@@ -26,9 +26,9 @@ export class LoginComponent implements OnInit{
       private formBuilder:  FormBuilder
       ){
              
-      // if(this.apiauthService.usuarioData){
-                //  this.router.navigate(['/']);
-               //}
+       if(this.apiauthService.usuarioData){
+                 this.router.navigate(['/home']);
+          }
      }
 
      ngOnInit() 
@@ -41,8 +41,8 @@ export class LoginComponent implements OnInit{
      {
       console.log(this.loginForm.value);
       this.apiauthService.login(this.loginForm.value as Login).subscribe(response =>{
-        if(response.exito === 1){
-            this.router.navigate(['/']);
+        if(response.exito == 1){
+            this.router.navigate(['/home']);
         }
       });
      }
